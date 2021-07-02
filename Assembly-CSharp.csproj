@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{26E61FC8-3E07-CB1E-7F97-6CB847A454C0}</ProjectGuid>
+    <ProjectGuid>{143DBE67-7229-8BA1-7383-172F6D972BE9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -57,9 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\WeaponSlotManager.cs" />
     <Compile Include="Assets\SampleSceneAssets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Player\InputHandler.cs" />
     <Compile Include="Assets\SampleSceneAssets\Scripts\SimpleCameraController.cs" />
+    <Compile Include="Assets\Scripts\WeaponItem.cs" />
     <Compile Include="Assets\Scripts\Player\ResetAnimatorBool.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAttacking.cs" />
     <Compile Include="Assets\Scripts\CameraHandler.cs" />
@@ -68,10 +70,9 @@
     <Compile Include="Assets\Scripts\Player\PlayerLocomotion.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerControls.cs" />
     <Compile Include="Assets\Scripts\Player\AnimatorHandler.cs" />
-    <Compile Include="Assets\Scripts\Item.cs" />
-    <Compile Include="Assets\Scripts\WeaponItem.cs" />
     <Compile Include="Assets\Scripts\WeaponHolderSlot.cs" />
-    <Compile Include="Assets\Scripts\WeaponSlotManager.cs" />
+    <Compile Include="Assets\Scripts\Item.cs" />
+    <Compile Include="Assets\Scripts\PlayerInventory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -710,7 +711,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.RenderPipelines.HighDefinition.Config.Runtime.csproj">
-      <Project>{340BACCC-BADE-CD6F-FDFD-372281C1F948}</Project>
+      <Project>{74074657-7388-2D64-D8B2-5C73DB299646}</Project>
       <Name>Unity.RenderPipelines.HighDefinition.Config.Runtime</Name>
     </ProjectReference>
   </ItemGroup>

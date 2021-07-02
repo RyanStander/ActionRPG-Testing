@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{3431F8F8-DA34-208B-E84B-D9F84E5CBDA6}</ProjectGuid>
+    <ProjectGuid>{75D3E1BA-FEF8-D7D9-9FEC-8C8BFC4FA74D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -722,11 +722,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{26E61FC8-3E07-CB1E-7F97-6CB847A454C0}</Project>
+      <Project>{143DBE67-7229-8BA1-7383-172F6D972BE9}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.RenderPipelines.HighDefinition.Config.Runtime.csproj">
-      <Project>{340BACCC-BADE-CD6F-FDFD-372281C1F948}</Project>
+      <Project>{74074657-7388-2D64-D8B2-5C73DB299646}</Project>
       <Name>Unity.RenderPipelines.HighDefinition.Config.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
