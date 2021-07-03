@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5132.1016, g: 3156.42, b: 2599.8867, a: 1}
+  m_IndirectSpecularColor: {r: 4737.885, g: 2737.8281, b: 1894.0508, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8190,6 +8190,7 @@ GameObject:
   - component: {fileID: 711983665}
   - component: {fileID: 711983669}
   - component: {fileID: 711983670}
+  - component: {fileID: 711983671}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -8205,7 +8206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711983663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.87, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1236110212}
@@ -8256,6 +8257,8 @@ MonoBehaviour:
   mouseX: 0
   mouseY: 0
   bInput: 0
+  lightAttackInput: 0
+  heavyAttackInput: 0
   rollFlag: 0
   sprintFlag: 0
   rollInputTimer: 0
@@ -8319,6 +8322,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightWeapon: {fileID: 11400000, guid: 6cfccc85eb797734cada35447c362dd3, type: 2}
   leftWeapon: {fileID: 11400000, guid: 70bba1335cc34f04a9be65043ac5aaee, type: 2}
+--- !u!114 &711983671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711983663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3da39db2815abe419ef666472356faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &712348113
 GameObject:
   m_ObjectHideFlags: 0

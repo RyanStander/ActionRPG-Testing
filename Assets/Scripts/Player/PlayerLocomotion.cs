@@ -147,7 +147,7 @@ public class PlayerLocomotion : MonoBehaviour
             rigidbody.AddForce(moveDirection * fallSpeed / 10f);
         }
 
-        Vector3 dir = -moveDirection;
+        Vector3 dir = moveDirection;
         dir.Normalize();
         origin = origin + dir * groundDirectionRayDistance;
 
@@ -157,13 +157,13 @@ public class PlayerLocomotion : MonoBehaviour
         if (Physics.Raycast(origin, -Vector3.up, out hit, minimumDistanceNeededToBeginFall, ignoreForGroundCheck))
         {
             normalVector = hit.normal;
-            Vector3 tp = hit.point;
+            Vector3 targetPosition = hit.point;
             playerManager.isGrounded = true;
-            targetPosition.y = tp.y;
+            this.targetPosition.y = targetPosition.y;
 
             if (playerManager.isInAir)
             {
-                if (inAirTimer < 2f)
+                if (inAirTimer > 0.5f)
                 {
                     Debug.Log("You were in the air for " + inAirTimer);
                     animatorHandler.PlayTargetAnimation("Land", true);
@@ -176,40 +176,41 @@ public class PlayerLocomotion : MonoBehaviour
                 }
                 playerManager.isInAir = false;
             }
-            else
-            {
-                if (playerManager.isGrounded)
-                {
-                    playerManager.isGrounded = false;
-                }
-
-                if (!playerManager.isInAir)
-                {
-                    if (!playerManager.isInteracting)
-                    {
-                        animatorHandler.PlayTargetAnimation("Falling", true);
-                    }
-
-                    Vector3 vel = rigidbody.velocity;
-                    vel.Normalize();
-                    rigidbody.velocity = vel * (movementSpeed / 2);
-                    playerManager.isInAir = true;
-                }
-            }
-
+        }
+        else
+        {
             if (playerManager.isGrounded)
             {
-                if (playerManager.isInteracting || inputHandler.moveAmount > 0)
+                playerManager.isGrounded = false;
+            }
+
+            if (!playerManager.isInAir)
+            {
+                if (!playerManager.isInteracting)
                 {
-                    myTransform.position = Vector3.Lerp(myTransform.position, targetPosition, Time.deltaTime);
+                    animatorHandler.PlayTargetAnimation("Falling", true);
                 }
-                else
-                {
-                    myTransform.position = targetPosition;
-                }
+
+                Vector3 vel = rigidbody.velocity;
+                vel.Normalize();
+                rigidbody.velocity = vel * (movementSpeed / 2);
+                playerManager.isInAir = true;
             }
         }
-    }
+
+        if (playerManager.isGrounded)
+        {
+            if (playerManager.isInteracting || inputHandler.moveAmount > 0)
+            {
+                myTransform.position = Vector3.Lerp(myTransform.position, this.targetPosition, Time.deltaTime);
+            }
+            else
+            {
+                myTransform.position = this.targetPosition;
+            }
+        }
+    } 
+
 
     public void HandleMovement(float deltaTime)
     {

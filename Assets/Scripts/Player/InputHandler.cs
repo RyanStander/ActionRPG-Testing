@@ -8,15 +8,22 @@ public class InputHandler : MonoBehaviour
     public float horizontal, vertical, moveAmount, mouseX, mouseY;
 
     private PlayerControls inputActions;
-
+    private PlayerCombatManager playerCombatManager;
+    private PlayerInventory playerInventory;
 
     private Vector2 movementInput;
     private Vector2 cameraInput;
 
-    public bool bInput;
+    public bool bInput,lightAttackInput,heavyAttackInput;
 
     public bool rollFlag, sprintFlag;
     public float rollInputTimer;
+
+    private void Awake()
+    {
+        playerCombatManager = GetComponent<PlayerCombatManager>();
+        playerInventory = GetComponent<PlayerInventory>();
+    }
 
     private void OnEnable()
     {
@@ -37,14 +44,11 @@ public class InputHandler : MonoBehaviour
         inputActions.Disable();
     }
 
-
-
-
-
     public void TickInput(float delta)
     {
         MoveInput(delta);
         HandleRollInput(delta);
+        HandleAttackInput(delta);
     }
 
     public void MoveInput(float delta)
@@ -74,6 +78,23 @@ public class InputHandler : MonoBehaviour
             }
 
             rollInputTimer = 0;
+        }
+    }
+
+    private void HandleAttackInput(float delta)
+    {
+        inputActions.PlayerActions.LightAttack.performed += i => lightAttackInput = true;
+        inputActions.PlayerActions.HeavyAttack.performed += i => heavyAttackInput = true;
+
+
+        if (lightAttackInput)
+        {
+            playerCombatManager.HandleLightAttack(playerInventory.rightWeapon);
+        }
+
+        if (heavyAttackInput)
+        {
+            playerCombatManager.HandleHeavyAttack(playerInventory.rightWeapon);
         }
     }
 }

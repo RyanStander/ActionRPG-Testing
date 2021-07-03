@@ -63,7 +63,7 @@
     <Compile Include="Assets\SampleSceneAssets\Scripts\SimpleCameraController.cs" />
     <Compile Include="Assets\Scripts\WeaponItem.cs" />
     <Compile Include="Assets\Scripts\Player\ResetAnimatorBool.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerAttacking.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerCombatManager.cs" />
     <Compile Include="Assets\Scripts\CameraHandler.cs" />
     <Compile Include="Assets\SampleSceneAssets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\SampleSceneAssets\Scripts\LookWithMouse.cs" />
