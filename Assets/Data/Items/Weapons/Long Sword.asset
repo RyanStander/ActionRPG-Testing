@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 286d326ccf079e1448f4b5b35bdcbf8a, type: 3}
-  m_Name: Shield
+  m_Name: Long Sword
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
-  itemName: Shield
-  modelPrefab: {fileID: 1253748060896135817, guid: 0bf8df6715e318841aab9c9aaaf33658, type: 3}
+  itemName: Long Sword
+  modelPrefab: {fileID: 1614384481742867806, guid: 7a1acc5298a075847b33d842dba351ff, type: 3}
   isUnarmed: 0
-  OHLightAttack1: OH_Light_Attack
-  OHHeavyAttack1: OH_Heavy_Attack
+  OHLightAttack1: TH_Light_Attack
+  OHHeavyAttack1: TH_Heavy_Attack
