@@ -36,6 +36,13 @@ public class InputHandler : MonoBehaviour
             //makes it so that input actions for movement/camera checked by movement  inputs and camera inputs
             inputActions.PlayerMovement.Movement.performed += movementInputActions => movementInput = movementInputActions.ReadValue<Vector2>();
             inputActions.PlayerMovement.Camera.performed += cameraInputActions => cameraInput = cameraInputActions.ReadValue<Vector2>();
+            
+            //attacking input actions
+            inputActions.PlayerActions.LightAttack.performed += i => lightAttackInput = true;
+            inputActions.PlayerActions.HeavyAttack.performed += i => heavyAttackInput = true;
+
+            //jumping input action
+            inputActions.PlayerActions.Jump.performed += i => jumpInput = true;
         }
 
         inputActions.Enable();
@@ -50,7 +57,6 @@ public class InputHandler : MonoBehaviour
         MoveInput(delta);
         HandleRollInput(delta);
         HandleAttackInput(delta);
-        HandleJumpInput();
     }
 
     public void MoveInput(float delta)
@@ -65,11 +71,10 @@ public class InputHandler : MonoBehaviour
     private void HandleRollInput(float delta)
     {
         rollInput = inputActions.PlayerActions.Roll.phase == UnityEngine.InputSystem.InputActionPhase.Started;
-
+        sprintFlag = rollInput;
         if (rollInput)
         {
             rollInputTimer += delta;
-            sprintFlag = true;
         }
         else
         {
@@ -85,10 +90,6 @@ public class InputHandler : MonoBehaviour
 
     private void HandleAttackInput(float delta)
     {
-        inputActions.PlayerActions.LightAttack.performed += i => lightAttackInput = true;
-        inputActions.PlayerActions.HeavyAttack.performed += i => heavyAttackInput = true;
-
-
         if (lightAttackInput)
         {
             if (playerManager.canDoCombo)
@@ -127,10 +128,5 @@ public class InputHandler : MonoBehaviour
             }
 
         }
-    }
-
-    private void HandleJumpInput()
-    {
-        inputActions.PlayerActions.Jump.performed += i => jumpInput = true;
     }
 }

@@ -26,7 +26,12 @@ public class PlayerLocomotion : MonoBehaviour
     public float inAirTimer;
 
     [Header("Movement Stats")]
-    [SerializeField] private float walkingSpeed = 3, movementSpeed = 5, rotationSpeed = 10, sprintSpeed = 7, fallSpeed = 80;
+    [SerializeField] private float walkingSpeed = 3, movementSpeed = 5, 
+        rotationSpeed = 10, sprintSpeed = 7, fallSpeed = 500;
+
+    [Header("Jumping stats")]
+    [Range(0,100)][SerializeField] private float jumpForce = 2f;
+
 
     private Vector3 normalVector;
     private Vector3 targetPosition;
@@ -102,6 +107,7 @@ public class PlayerLocomotion : MonoBehaviour
 
 
         //Moves the object based on a plane
+        if (!playerManager.isInAir)
         rigidbody.velocity = Vector3.ProjectOnPlane(moveDirection, normalVector);
     }
 
@@ -218,14 +224,16 @@ public class PlayerLocomotion : MonoBehaviour
 
         if (inputHandler.jumpInput)
         {
+            //if player is moving, perform a jump with animations
             if (inputHandler.moveAmount > 0)
             {
                 moveDirection = cameraObject.forward * inputHandler.vertical;
                 moveDirection += cameraObject.right * inputHandler.horizontal;
-                animatorHandler.PlayTargetAnimation("Jump", false);
+                animatorHandler.PlayTargetAnimation("Jump", true);
                 moveDirection.y = 0;
                 Quaternion jumpRotation = Quaternion.LookRotation(moveDirection);
                 myTransform.rotation = jumpRotation;
+                rigidbody.AddForce(Vector3.up*jumpForce,ForceMode.Impulse);
             }
         }
         //add stationary jump

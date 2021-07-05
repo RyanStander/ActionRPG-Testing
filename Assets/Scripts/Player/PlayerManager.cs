@@ -32,9 +32,9 @@ public class PlayerManager : MonoBehaviour
         anim.SetBool("isInAir", isInAir);
 
         inputHandler.TickInput(delta);
-        playerLocomotion.HandleMovement(delta);
+
+        //handle animation based functions for locomotion
         playerLocomotion.HandleRollingAndSprinting(delta);
-        playerLocomotion.HandleFalling(delta, playerLocomotion.moveDirection);
         playerLocomotion.HandleJumping();
     }
 
@@ -42,22 +42,27 @@ public class PlayerManager : MonoBehaviour
     {
         float delta = Time.fixedDeltaTime;
 
-        if (cameraHandler != null)
-        {
-            cameraHandler.FollowTarget(delta);
-            cameraHandler.HandleCameraRotation(delta, inputHandler.mouseX, inputHandler.mouseY);
-        }
+        //Handle movement based functions
+        playerLocomotion.HandleMovement(delta);
+        playerLocomotion.HandleFalling(delta, playerLocomotion.moveDirection);
+        
     }
 
     private void LateUpdate()
     {
         inputHandler.rollFlag = false;
-        inputHandler.sprintFlag = false;
         inputHandler.lightAttackInput = false;
         inputHandler.heavyAttackInput = false;
         inputHandler.jumpInput = false;
 
         isSprinting = inputHandler.rollInput;
+
+        if (cameraHandler != null)
+        {
+            float delta = Time.fixedDeltaTime;
+            cameraHandler.FollowTarget(delta);
+            cameraHandler.HandleCameraRotation(delta, inputHandler.mouseX, inputHandler.mouseY);
+        }
 
         if (isInAir)
         {
