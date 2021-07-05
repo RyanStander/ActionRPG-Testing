@@ -211,6 +211,25 @@ public class PlayerLocomotion : MonoBehaviour
         }
     } 
 
+    public void HandleJumping()
+    {
+        if (playerManager.isInteracting)
+            return;
+
+        if (inputHandler.jumpInput)
+        {
+            if (inputHandler.moveAmount > 0)
+            {
+                moveDirection = cameraObject.forward * inputHandler.vertical;
+                moveDirection += cameraObject.right * inputHandler.horizontal;
+                animatorHandler.PlayTargetAnimation("Jump", false);
+                moveDirection.y = 0;
+                Quaternion jumpRotation = Quaternion.LookRotation(moveDirection);
+                myTransform.rotation = jumpRotation;
+            }
+        }
+        //add stationary jump
+    }
 
     public void HandleMovement(float deltaTime)
     {

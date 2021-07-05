@@ -15,7 +15,7 @@ public class InputHandler : MonoBehaviour
     private Vector2 movementInput;
     private Vector2 cameraInput;
 
-    public bool bInput,lightAttackInput,heavyAttackInput;
+    public bool rollInput,lightAttackInput,heavyAttackInput, jumpInput;
 
     public bool rollFlag, sprintFlag,comboFlag;
     public float rollInputTimer;
@@ -50,6 +50,7 @@ public class InputHandler : MonoBehaviour
         MoveInput(delta);
         HandleRollInput(delta);
         HandleAttackInput(delta);
+        HandleJumpInput();
     }
 
     public void MoveInput(float delta)
@@ -63,9 +64,9 @@ public class InputHandler : MonoBehaviour
 
     private void HandleRollInput(float delta)
     {
-        bInput = inputActions.PlayerActions.Roll.phase == UnityEngine.InputSystem.InputActionPhase.Started;
+        rollInput = inputActions.PlayerActions.Roll.phase == UnityEngine.InputSystem.InputActionPhase.Started;
 
-        if (bInput)
+        if (rollInput)
         {
             rollInputTimer += delta;
             sprintFlag = true;
@@ -126,5 +127,10 @@ public class InputHandler : MonoBehaviour
             }
 
         }
+    }
+
+    private void HandleJumpInput()
+    {
+        inputActions.PlayerActions.Jump.performed += i => jumpInput = true;
     }
 }

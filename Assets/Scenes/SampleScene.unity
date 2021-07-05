@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5131.289, g: 3155.8965, b: 2599.7422, a: 1}
+  m_IndirectSpecularColor: {r: 5132.1016, g: 3156.42, b: 2599.8945, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6172,7 +6172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 892c9fbf1b8eea5438f02d77fa51014b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 1000
   currentHealth: 0
   healthBar: {fileID: 1253422712}
 --- !u!136 &399996900
@@ -10092,9 +10092,10 @@ MonoBehaviour:
   moveAmount: 0
   mouseX: 0
   mouseY: 0
-  bInput: 0
+  rollInput: 0
   lightAttackInput: 0
   heavyAttackInput: 0
+  jumpInput: 0
   rollFlag: 0
   sprintFlag: 0
   comboFlag: 0
