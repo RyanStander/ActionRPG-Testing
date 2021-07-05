@@ -182,7 +182,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""761f7ab8-4e65-4841-af64-12996a20ea74"",
                     ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": ""Press(pressPoint=1)"",
+                    ""interactions"": ""Hold(duration=0.15)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""HeavyAttack"",
