@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5132.1016, g: 3156.42, b: 2599.8945, a: 1}
+  m_IndirectSpecularColor: {r: 5131.289, g: 3155.8965, b: 2599.7422, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4869,7 +4869,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.19965851
+  m_Radius: 0.4
   m_Height: 1.7404826
   m_Direction: 1
   m_Center: {x: -0.01614052, y: 0.86797667, z: -0.005498588}
@@ -10097,6 +10097,7 @@ MonoBehaviour:
   heavyAttackInput: 0
   rollFlag: 0
   sprintFlag: 0
+  comboFlag: 0
   rollInputTimer: 0
 --- !u!54 &711983667
 Rigidbody:
@@ -10144,6 +10145,7 @@ MonoBehaviour:
   isSprinting: 0
   isInAir: 0
   isGrounded: 0
+  canDoCombo: 0
 --- !u!114 &711983670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10156,7 +10158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2bc377ed8a40e418d7fbaef0b6bddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightWeapon: {fileID: 11400000, guid: 6cfccc85eb797734cada35447c362dd3, type: 2}
+  rightWeapon: {fileID: 11400000, guid: e897ed5484d6eb742a451e8f932ccef0, type: 2}
   leftWeapon: {fileID: 0}
 --- !u!114 &711983671
 MonoBehaviour:
@@ -10170,6 +10172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3da39db2815abe419ef666472356faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastAttack: 
 --- !u!114 &711983672
 MonoBehaviour:
   m_ObjectHideFlags: 0

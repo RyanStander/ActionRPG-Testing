@@ -11,7 +11,7 @@ public class PlayerManager : MonoBehaviour
     private PlayerLocomotion playerLocomotion;
 
     [Header("Player Flags")]
-    public bool isInteracting, isSprinting, isInAir, isGrounded;
+    public bool isInteracting, isSprinting, isInAir, isGrounded,canDoCombo;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,7 @@ public class PlayerManager : MonoBehaviour
     {
         float delta = Time.deltaTime;
         isInteracting = anim.GetBool("isInteracting");
+        canDoCombo = anim.GetBool("canDoCombo");
 
         inputHandler.TickInput(delta);
         playerLocomotion.HandleMovement(delta);

@@ -72,6 +72,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7530171476063050707}
   - component: {fileID: 1139193684754521086}
+  - component: {fileID: 8427213698306731468}
+  - component: {fileID: 242536589543612851}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -146,3 +148,29 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.01586017, y: -0.009841837, z: -0.005810201}
     m_Extent: {x: 0.25026354, y: 0.06395831, z: 0.64897436}
   m_DirtyAABB: 0
+--- !u!65 &8427213698306731468
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5650670577322108878}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.14072436, y: 0.05450471, z: 0.93715215}
+  m_Center: {x: -0.024490409, y: -0.016959112, z: 0.17458837}
+--- !u!114 &242536589543612851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5650670577322108878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a28550ca59aca434a819b182fdd9d6c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeaponDamage: 40

@@ -7,8 +7,12 @@ public class WeaponSlotManager : MonoBehaviour
     private WeaponHolderSlot leftHandSlot, rightHandSlot;
 
     private DamageCollider leftHandDamageCollider, rightHandDamageCollider;
+
+    private Animator animator;
     private void Awake()
     {
+        animator = GetComponent<Animator>();
+
         WeaponHolderSlot[] weaponHolderSlots = GetComponentsInChildren<WeaponHolderSlot>();
         foreach (WeaponHolderSlot weaponHolderSlot in weaponHolderSlots)
         {
@@ -30,12 +34,34 @@ public class WeaponSlotManager : MonoBehaviour
             leftHandSlot.LoadWeaponModel(weaponItem);
             if (leftHandSlot != null)
                 LoadLeftWeaponDamageCollider();
+
+            #region Weapon Idle Anim
+            if (weaponItem != null)
+            {
+                animator.CrossFade(weaponItem.leftHandIdle, 0.2f);
+            }
+            else
+            {
+                animator.CrossFade("Left Arm Empty", 0.2f);
+            }
+            #endregion
         }
         else
         {
             rightHandSlot.LoadWeaponModel(weaponItem);
             if (rightHandSlot != null)
                 LoadRightWeaponDamageCollider();
+
+            #region Weapon Idle Anim
+            if (weaponItem != null)
+            {
+                animator.CrossFade(weaponItem.rightHandIdle, 0.2f);
+            }
+            else
+            {
+                animator.CrossFade("Right Arm Empty", 0.2f);
+            }
+            #endregion
         }
     }
 

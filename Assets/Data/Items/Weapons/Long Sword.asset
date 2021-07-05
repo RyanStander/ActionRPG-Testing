@@ -16,5 +16,11 @@ MonoBehaviour:
   itemName: Long Sword
   modelPrefab: {fileID: 1614384481742867806, guid: 7a1acc5298a075847b33d842dba351ff, type: 3}
   isUnarmed: 0
-  OHLightAttack1: TH_Light_Attack
-  OHHeavyAttack1: TH_Heavy_Attack
+  rightHandIdle: Idle_GreatSword_01
+  leftHandIdle: Idle_GreatSword_01
+  OHLightAttacks:
+  - TH_Light_Attack_01
+  - TH_Light_Attack_02
+  - TH_Light_Attack_03
+  OHHeavyAttacks:
+  - TH_Heavy_Attack
